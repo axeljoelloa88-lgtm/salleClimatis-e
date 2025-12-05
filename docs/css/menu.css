@@ -1,0 +1,371 @@
+/* ===========================================
+   STYLE GÉNÉRAL - THÈME VERT & ORANGE
+   =========================================== */
+
+/* Variables de couleurs du thème */
+:root {
+    --primary-green: #2E7D32;       /* Vert foncé élégant */
+    --secondary-green: #4CAF50;     /* Vert vif */
+    --light-green: #E8F5E9;         /* Vert très clair */
+    --primary-orange: #FF9800;      /* Orange vif */
+    --dark-orange: #EF6C00;         /* Orange foncé */
+    --light-orange: #FFE0B2;        /* Orange clair */
+    --dark-text: #333333;           /* Texte foncé */
+    --light-text: #FFFFFF;          /* Texte clair */
+    --background-light: #FAFAFA;    /* Arrière-plan clair */
+    --background-dark: #1B5E20;     /* Arrière-plan foncé */
+    --gray-light: #EEEEEE;          /* Gris clair */
+    --gray-medium: #757575;         /* Gris moyen */
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--background-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===========================================
+   NAVIGATION - MENU PRINCIPAL
+   =========================================== */
+nav {
+    background-color: var(--primary-green);
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--primary-orange);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-orange);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Indicateur de page active */
+nav ul li a[href="menu.html"] {
+    color: var(--primary-orange);
+    font-weight: 600;
+}
+
+/* ===========================================
+   EN-TÊTE DE PAGE
+   =========================================== */
+.page-header {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    margin-bottom: 3rem;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.underline {
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-orange);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* ===========================================
+   CONTENU PRINCIPAL - MENU
+   =========================================== */
+.menu-wrapper {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+/* Sections du menu */
+.menu-section {
+    margin-bottom: 4rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.menu-section:nth-child(1) { animation-delay: 0.1s; }
+.menu-section:nth-child(2) { animation-delay: 0.2s; }
+.menu-section:nth-child(3) { animation-delay: 0.3s; }
+.menu-section:nth-child(4) { animation-delay: 0.4s; }
+
+.menu-section h2 {
+    color: var(--primary-green);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-green);
+    text-align: center;
+    font-family: 'Georgia', serif;
+    position: relative;
+}
+
+.menu-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--primary-orange);
+}
+
+/* Grille des plats */
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Carte d'un plat */
+.menu-item {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--light-green);
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--secondary-green);
+}
+
+.menu-item h3 {
+    color: var(--primary-green);
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--light-orange);
+}
+
+.menu-item p {
+    color: var(--gray-medium);
+    font-size: 1rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* Effet spécial pour les titres des plats */
+.menu-item h3::before {
+    content: "• ";
+    color: var(--primary-orange);
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+/* ===========================================
+   PIED DE PAGE
+   =========================================== */
+footer {
+    background-color: var(--primary-green);
+    color: var(--light-text);
+    padding: 3rem 2rem 2rem;
+    margin-top: auto;
+}
+
+footer p {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+footer a {
+    color: var(--primary-orange);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--light-orange);
+    text-decoration: underline;
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation d'apparition pour les éléments du menu */
+.menu-item {
+    animation: slideUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.menu-items .menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-items .menu-item:nth-child(2) { animation-delay: 0.2s; }
+.menu-items .menu-item:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+@media (max-width: 768px) {
+    /* Navigation responsive */
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    nav ul li a {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+    
+    /* En-tête responsive */
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* Menu responsive */
+    .menu-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .menu-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .menu-items {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .menu-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .menu-item {
+        padding: 1.2rem;
+    }
+    
+    .menu-item h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===========================================
+   EFFETS DE SURVOL
+   =========================================== */
+footer a {
+    position: relative;
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--light-orange);
+    transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+/* Animation de navigation */
+nav ul li a,
+.page-header h1,
+.underline {
+    animation: slideUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+nav ul li:nth-child(1) a { animation-delay: 0.1s; }
+nav ul li:nth-child(2) a { animation-delay: 0.2s; }
+nav ul li:nth-child(3) a { animation-delay: 0.3s; }
+nav ul li:nth-child(4) a { animation-delay: 0.4s; }
+.page-header h1 { animation-delay: 0.6s; }
+.underline { animation-delay: 0.7s; }
